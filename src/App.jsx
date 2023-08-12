@@ -14,10 +14,28 @@ function App() {
     phoneNumber: "",
     email: "",
   });
+  const [workData, setWorkData] = useState({
+     position:"",
+     company:"",
+     startDate:"",
+     endDate:""
+  });
+  const [educationData, setEducationData] = useState({
+     university:"",
+     degree:"",
+     startDate:"",
+     endDate:""
+  });
 
   const handlePersonalDataChange = (name, value) => {
     setPersonalData({ ...personalData, [name]: value });
   };
+  const handleWorkData=(name, value) =>{
+    setWorkData({...workData, [name]: value});
+  }
+  const handleEducationDate=(name, value) =>{
+    setEducationData({...educationData, [name]: value});
+  }
 
   return (
     <>
@@ -30,12 +48,18 @@ function App() {
             personalData={personalData}
             onPersonalDataChange={handlePersonalDataChange}
           />
-          <WorkExperienceInfo />
-          <EducationInfo />
+          <WorkExperienceInfo 
+          workData={workData}
+          onWorkDataChange={handleWorkData} />
+          <EducationInfo
+          educationData={educationData} 
+          onEducationDataChange={handleEducationDate}/>
         </div>
         <div className="resume">
           <ResumePreview
-          personalData={personalData}/>
+          personalData={personalData}
+          workData={workData}
+          educationData={educationData}/>
         </div>
       </div>
     </>

@@ -112,9 +112,7 @@ form .add:hover{
   text-align: center;
 }
 
-.contactInfo{
 
-}
 .contactInfo h2{
   background-color: #334155;
   background-size: cover;
@@ -128,9 +126,36 @@ form .add:hover{
   margin-left: 3vh;
 }
 
+.workInfo h2{
+  background-color: #334155;
+  background-size: cover;
+  padding: 1vh 3vh;
+  color: white;
+}
+.workDetail{
+  padding-left: 3vh;
+}
 
+.workDetail .workTime{
+  display: inline-block;
+  width: 3vw;
+  text-align: center;
+}
 
-
+.educationInfo h2{
+  background-color: #334155;
+  background-size: cover;
+  padding: 1vh 3vh;
+  color: white;
+}
+.educationInfo .eduDetail{
+  padding-left: 3vh;
+}
+.eduDetail .eduTime{
+  display: inline-block;
+  width: 3vw;
+  text-align: center;
+}
 
 
 @media screen and (max-width: 500px) {
