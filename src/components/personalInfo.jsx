@@ -4,6 +4,7 @@ function PersonalInfo({ personalData, onPersonalDataChange }) {
     const handleSubmit = (e) => {
         e.preventDefault();
       };
+      
       const handleInputChange = (e) => {
         const { name, value } = e.target;
         onPersonalDataChange(name, value);
@@ -69,6 +70,14 @@ function PersonalInfo({ personalData, onPersonalDataChange }) {
         placeholder="Email"
         value={personalData.email}
         onChange={handleInputChange}
+      />
+      <textarea
+          className="aboutMe"
+          name="aboutMe"
+          placeholder="Write a short summary about you"
+          value={personalData.aboutMe}
+          onChange={handleInputChange}
+
       />
       <div className="saveDelete">
       </div>

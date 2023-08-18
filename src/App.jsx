@@ -14,12 +14,34 @@ function App() {
     phoneNumber: "",
     email: "",
   });
+  
   const [workData, setWorkData] = useState({
      position:"",
      company:"",
      startDate:"",
      endDate:""
   });
+
+  const [workExp , setWorkExp] = useState([]);
+  //console.log(workData)
+  function handleAddworkExp () {
+    
+    setWorkExp(currentWorkExp => {
+      return[
+      ...currentWorkExp,
+    { id: crypto.randomUUID(), object: workData }
+    ]});
+
+    setWorkData({
+      position: "",
+      company: "",
+      startDate: "",
+      endDate: ""
+    });
+  }
+
+  
+
   const [educationData, setEducationData] = useState({
      university:"",
      degree:"",
@@ -33,10 +55,11 @@ function App() {
   const handleWorkData=(name, value) =>{
     setWorkData({...workData, [name]: value});
   }
+  
   const handleEducationDate=(name, value) =>{
     setEducationData({...educationData, [name]: value});
   }
-
+  console.log(workExp)
   return (
     <>
       <div className="header">
@@ -50,18 +73,23 @@ function App() {
           />
           <WorkExperienceInfo 
           workData={workData}
-          onWorkDataChange={handleWorkData} />
+          onWorkDataChange={handleWorkData}
+          handleAddworkExp={handleAddworkExp} 
+          workExp={workExp}
+          setWorkExp={setWorkExp}/>
           <EducationInfo
           educationData={educationData} 
           onEducationDataChange={handleEducationDate}/>
         </div>
         <div className="resume">
-          <ResumePreview
+        <ResumePreview
           personalData={personalData}
-          workData={workData}
+          //workData={workData}
+          workExp={workExp} 
           educationData={educationData}/>
         </div>
       </div>
+      
     </>
   );
 }
